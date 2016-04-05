@@ -49,16 +49,8 @@
       <div class="vehicles-block">
         <div class="vehicles-list">
           <p>
-            <b>1-10</b> of <b>100</b> Vehicles
+            {{ parkingCtrl.vehicles.length }} vehicles
           </p>
-          <div class="buttons">
-            <button>
-              Previous
-            </button>
-            <button>
-              Next
-            </button>
-          </div>
         </div>
         <div class="vehicle" ng-repeat="vehicle in parkingCtrl.vehicles">
           {{ vehicle.plate }} <span>Level X</span><br>
