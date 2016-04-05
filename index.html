@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="parkingApp">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -7,7 +7,7 @@
     <link href="styles.css" rel="stylesheet">
     <title>Parking</title>
   </head>
-  <body>
+  <body ng-controller="ParkingCtrl as parkingCtrl">
     <header>
       <div class="plank">
       </div>
@@ -27,14 +27,8 @@
             Levels
           </p>
           <ul>
-            <li>
-              <input type="checkbox" name="level" value="Level1">Level 1
-            </li>
-            <li>
-              <input type="checkbox" name="level" value="Level2">Level 2
-            </li>
-            <li>
-              <input type="checkbox" name="level" value="Level3">Level 3
+            <li ng-repeat="label in parkingCtrl.LevelLabels()">
+              <input type="checkbox" name="level_{{ $index }}">{{ label }}
             </li>
           </ul>
         </div>
@@ -66,35 +60,13 @@
             </button>
           </div>
         </div>
-        <div class="vehicle">
-          M - X 897 <span>Level 1</span><br>
-          Car <span>Slot: 23</span>
-        </div>
-        <div class="vehicle">
-          M - X 897 <span>Level 1</span><br>
-          Car <span>Slot: 23</span>
-        </div>
-        <div class="vehicle">
-          M - X 897 <span>Level 1</span><br>
-          Car <span>Slot: 23</span>
-        </div>
-        <div class="vehicle">
-          M - X 897 <span>Level 1</span><br>
-          Car <span>Slot: 23</span>
-        </div>
-        <div class="vehicle">
-          M - X 897 <span>Level 1</span><br>
-          Car <span>Slot: 23</span>
-        </div>
-        <div class="vehicle">
-          M - X 897 <span>Level 1</span><br>
-          Car <span>Slot: 23</span>
-        </div>
-        <div class="vehicle">
-          M - X 897 <span>Level 1</span><br>
-          Car <span>Slot: 23</span>
+        <div class="vehicle" ng-repeat="vehicle in parkingCtrl.vehicles">
+          {{ vehicle.plate }} <span>Level X</span><br>
+          {{ vehicle.type }} <span>Slot: AB</span>
         </div>
       </div>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
