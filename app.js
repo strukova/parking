@@ -2,7 +2,7 @@ var parkingApp = angular.module('parkingApp', []);
 
 var ParkingCtrl = function() {
   this.levels = 5;
-  this.slotsPerLevel = 10;
+  this.slotsPerLevel = 3;
   this.slots = new Array(this.levels);
   for (var i = 0; i < this.levels; i++) {
     this.slots[i] = new Array(this.slotsPerLevel);
@@ -16,6 +16,10 @@ var ParkingCtrl = function() {
   this.carsFilter = false;
   this.motorbikesFilter = false;
   this.plateFilter = "";
+  this.levelFilter = new Array(this.levels);
+  for (var i = 0; i < this.levels; i++) {
+    this.levelFilter[i] = false;
+  }
   this.vehicles = [];
 };
 
@@ -88,11 +92,25 @@ ParkingCtrl.prototype.MatchesPlateFilter = function(vehicle) {
   return false;
 };
 
+ParkingCtrl.prototype.MatchesLevelFilter = function(vehicle) {
+  var hasLevelFilter = false;
+  for (var i = 0; i < this.levelFilter.length; i++) {
+    if (this.levelFilter[i]) {
+      hasLevelFilter = true;
+    }
+  }
+  if (!hasLevelFilter) {
+    return true;
+  }
+  return this.levelFilter[vehicle.level];
+};
+
 ParkingCtrl.prototype.FilteredVehicles = function() {
   var result = [];
   for (var i = 0; i < this.vehicles.length; i++) {
     if (this.MatchesTypeFilter(this.vehicles[i]) &&
-        this.MatchesPlateFilter(this.vehicles[i])) {
+        this.MatchesPlateFilter(this.vehicles[i]) &&
+        this.MatchesLevelFilter(this.vehicles[i])) {
       result.push(this.vehicles[i]);
     }
   }

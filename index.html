@@ -28,7 +28,7 @@
           </p>
           <ul>
             <li ng-repeat="label in parkingCtrl.LevelLabels()">
-              <input type="checkbox" name="level_{{ $index }}">{{ label }}
+              <input type="checkbox" name="level_{{ $index }}" ng-model="parkingCtrl.levelFilter[$index]">{{ label }}
             </li>
           </ul>
         </div>
