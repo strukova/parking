@@ -16,12 +16,20 @@ var ParkingCtrl = function() {
 
   this.AddVehicle('X-123', 'Car');
   this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
+  this.AddVehicle('Y-321', 'Motorbike');
 };
 
 ParkingCtrl.prototype.LevelLabels = function() {
   var result = [];
   for (var i = 0; i < this.levels; i++) {
-    result.push("Level " + (i + 1));
+    result.push("Level " + i);
   }
   return result;
 };
