@@ -49,7 +49,7 @@
       <div class="vehicles-block">
         <div class="vehicles-list">
           <p>
-            {{ parkingCtrl.vehicles.length }} vehicles
+            Showing {{ parkingCtrl.FilteredVehicles().length }} of {{ parkingCtrl.vehicles.length }} vehicles
           </p>
           <button ng-click="parkingCtrl.ShowDialog()">Add vehicle</button>
         </div>
