@@ -12,18 +12,8 @@ var ParkingCtrl = function() {
       this.slots[i][j] = true; // Each slot is empty in the beginning.
     }
   }
+  this.dialogVisible = false;
   this.vehicles = [];
-
-  this.AddVehicle('X-123', 'Car');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
-  this.AddVehicle('Y-321', 'Motorbike');
 };
 
 ParkingCtrl.prototype.LevelLabels = function() {
@@ -34,18 +24,37 @@ ParkingCtrl.prototype.LevelLabels = function() {
   return result;
 };
 
-ParkingCtrl.prototype.AddVehicle = function(plate, type) {
+ParkingCtrl.prototype.AddVehicle = function() {
+  if (this.vehiclePlate == "") {
+    this.ShowError('You must specify vehicle plate');
+    return;
+  }
+  if (this.vehicleType != "Car" && this.vehicleType != "Motorbike") {
+    this.ShowError('Invalid vehicle type');
+    return;
+  }
   for (var i = 0; i < this.levels; i++) {
     for (var j = 0; j < this.slotsPerLevel; j++) {
       if (this.slots[i][j]) {
         this.slots[i][j] = false;
-        var vehicle = {"plate": plate, "type": type, "level": i, "slot": j};
+        var vehicle = {"plate": this.vehiclePlate, "type": this.vehicleType, "level": i, "slot": j};
         this.vehicles.push(vehicle);
+        this.HideDialog();
         return;
       }
     }
   }
   this.ShowError("No free slots");
+};
+
+ParkingCtrl.prototype.ShowDialog = function() {
+  this.vehicleType = 'Car';
+  this.vehiclePlate = '';
+  this.dialogVisible = true;
+};
+
+ParkingCtrl.prototype.HideDialog = function() {
+  this.dialogVisible = false;
 };
 
 ParkingCtrl.prototype.ShowError = function(message) {

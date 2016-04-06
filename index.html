@@ -51,25 +51,26 @@
           <p>
             {{ parkingCtrl.vehicles.length }} vehicles
           </p>
+          <button ng-click="parkingCtrl.ShowDialog()">Add vehicle</button>
         </div>
         <div class="vehicle" ng-repeat="vehicle in parkingCtrl.vehicles">
-          {{ vehicle.plate }} <span>Level X</span><br>
-          {{ vehicle.type }} <span>Slot: AB</span>
+          {{ vehicle.plate }} <span>Level {{ vehicle.level }}</span><br>
+          {{ vehicle.type }} <span>Slot: {{ vehicle.slot }}</span>
         </div>
       </div>
-      <div class="popup">
+      <div class="popup" ng-show="parkingCtrl.dialogVisible">
         <form>
           <p>Add vehicle</p>
-          <input type="text" name="plate" value="">
-          <select>
-            <option>Car</option>
-            <option>Motorbike</option>
+          <input type="text" ng-model="parkingCtrl.vehiclePlate">
+          <select name="vehicleType" ng-model="parkingCtrl.vehicleType">
+            <option value="Car">Car</option>
+            <option value="Motorbike">Motorbike</option>
           </select>
           <br>
-          <button class="cancel">
+          <button ng-click="parkingCtrl.HideDialog()">
             Cancel
           </button>
-          <button class="send">
+          <button ng-click="parkingCtrl.AddVehicle()">
             Add
           </button>
         </form>
