@@ -20,7 +20,7 @@
     <section class="container">
       <div class="filters-block">
         <div class="search">
-          <input type="search">
+          <input type="search" ng-model="parkingCtrl.plateFilter">
         </div>
         <div class="levels">
           <p>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="popup" ng-show="parkingCtrl.dialogVisible">
-        <form>
+        <form ng-submit="parkingCtrl.AddVehicle()">
           <p>Add vehicle</p>
           <input type="text" ng-model="parkingCtrl.vehiclePlate">
           <select name="vehicleType" ng-model="parkingCtrl.vehicleType">
@@ -70,7 +70,7 @@
           <button ng-click="parkingCtrl.HideDialog()">
             Cancel
           </button>
-          <button ng-click="parkingCtrl.AddVehicle()">
+          <button type="submit">
             Add
           </button>
         </form>

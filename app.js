@@ -15,6 +15,7 @@ var ParkingCtrl = function() {
   this.dialogVisible = false;
   this.carsFilter = false;
   this.motorbikesFilter = false;
+  this.plateFilter = "";
   this.vehicles = [];
 };
 
@@ -64,7 +65,7 @@ ParkingCtrl.prototype.ShowError = function(message) {
 };
 
 // Returns true if the given vehicle matches current type filter.
-ParkingCtrl.prototype.TypeFilter = function(vehicle) {
+ParkingCtrl.prototype.MatchesTypeFilter = function(vehicle) {
   if (!this.carsFilter && !this.motorbikesFilter) {
     return true;
   }
@@ -77,10 +78,21 @@ ParkingCtrl.prototype.TypeFilter = function(vehicle) {
   return false;
 };
 
+ParkingCtrl.prototype.MatchesPlateFilter = function(vehicle) {
+  if (!this.plateFilter) {
+    return true;
+  }
+  if (vehicle.plate.indexOf(this.plateFilter) != -1) {
+    return true;
+  }
+  return false;
+};
+
 ParkingCtrl.prototype.FilteredVehicles = function() {
   var result = [];
   for (var i = 0; i < this.vehicles.length; i++) {
-    if (this.TypeFilter(this.vehicles[i])) {
+    if (this.MatchesTypeFilter(this.vehicles[i]) &&
+        this.MatchesPlateFilter(this.vehicles[i])) {
       result.push(this.vehicles[i]);
     }
   }
