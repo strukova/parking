@@ -38,10 +38,10 @@
           </p>
           <ul>
             <li>
-              <input type="checkbox" name="vehicle" value="Car">Car
+              <input type="checkbox" name="vehicle" ng-model="parkingCtrl.carsFilter">Car
             </li>
             <li>
-              <input type="checkbox" name="vehicle" value="Motorbike">Motorbike
+              <input type="checkbox" name="vehicle" ng-model="parkingCtrl.motorbikesFilter">Motorbike
             </li>
           </ul>
         </div>
@@ -53,7 +53,7 @@
           </p>
           <button ng-click="parkingCtrl.ShowDialog()">Add vehicle</button>
         </div>
-        <div class="vehicle" ng-repeat="vehicle in parkingCtrl.vehicles">
+        <div class="vehicle" ng-repeat="vehicle in parkingCtrl.FilteredVehicles()">
           {{ vehicle.plate }} <span>Level {{ vehicle.level }}</span><br>
           {{ vehicle.type }} <span>Slot: {{ vehicle.slot }}</span>
         </div>

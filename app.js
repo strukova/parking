@@ -13,6 +13,8 @@ var ParkingCtrl = function() {
     }
   }
   this.dialogVisible = false;
+  this.carsFilter = false;
+  this.motorbikesFilter = false;
   this.vehicles = [];
 };
 
@@ -59,6 +61,30 @@ ParkingCtrl.prototype.HideDialog = function() {
 
 ParkingCtrl.prototype.ShowError = function(message) {
   alert(message);
+};
+
+// Returns true if the given vehicle matches current type filter.
+ParkingCtrl.prototype.TypeFilter = function(vehicle) {
+  if (!this.carsFilter && !this.motorbikesFilter) {
+    return true;
+  }
+  if (this.carsFilter && vehicle.type == "Car") {
+    return true;
+  }
+  if (this.motorbikesFilter && vehicle.type == "Motorbike") {
+    return true;
+  }
+  return false;
+};
+
+ParkingCtrl.prototype.FilteredVehicles = function() {
+  var result = [];
+  for (var i = 0; i < this.vehicles.length; i++) {
+    if (this.TypeFilter(this.vehicles[i])) {
+      result.push(this.vehicles[i]);
+    }
+  }
+  return result;
 };
 
 parkingApp.controller('ParkingCtrl', ParkingCtrl);
