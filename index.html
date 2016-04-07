@@ -54,11 +54,17 @@
           <button ng-click="parkingCtrl.ShowDialog()">Add vehicle</button>
         </div>
         <div class="vehicle" ng-repeat="vehicle in parkingCtrl.FilteredVehicles()">
-          {{ vehicle.plate }} <span>Level {{ vehicle.level }}</span><br>
-          {{ vehicle.type }} <span>Slot: {{ vehicle.slot }}</span>
-          <button class="removebutton">
+          <button>
             <img src="closeicon.png" alt="X">
           </button>
+          <div class="vehicle-properties">
+            {{ vehicle.plate }}<br>
+            {{ vehicle.type }}
+          </div>
+          <div class="vehicle-position">
+            Level {{ vehicle.level }}<br>
+            Slot: {{ vehicle.slot }}
+          </div>
         </div>
       </div>
       <div class="popup" ng-show="parkingCtrl.dialogVisible">
