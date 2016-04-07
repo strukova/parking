@@ -56,6 +56,9 @@
         <div class="vehicle" ng-repeat="vehicle in parkingCtrl.FilteredVehicles()">
           {{ vehicle.plate }} <span>Level {{ vehicle.level }}</span><br>
           {{ vehicle.type }} <span>Slot: {{ vehicle.slot }}</span>
+          <button class="removebutton">
+            <img src="closeicon.png" alt="X">
+          </button>
         </div>
       </div>
       <div class="popup" ng-show="parkingCtrl.dialogVisible">
