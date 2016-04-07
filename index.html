@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="popup" ng-show="parkingCtrl.dialogVisible">
-        <form ng-submit="parkingCtrl.AddVehicle()">
+        <form>
           <b>Add vehicle</b>
           <input type="text" placeholder="Enter the plate here" ng-model="parkingCtrl.vehiclePlate">
           <br>
@@ -79,7 +79,7 @@
           <br>
           <div class="button-container">
             <button ng-click="parkingCtrl.HideDialog()">Cancel</button>
-            <button type="submit">Add</button>
+            <button ng-click="parkingCtrl.AddVehicle()">Add</button>
           </div>
         </form>
       </div>
