@@ -54,6 +54,15 @@ ParkingCtrl.prototype.AddVehicle = function() {
   this.ShowError("No free slots");
 };
 
+ParkingCtrl.prototype.RemoveVehicle = function(vehicle) {
+  for (var i = 0; i < this.vehicles.length; i++) {
+    if (this.vehicles[i].plate === vehicle.plate) {
+      this.slots[this.vehicles[i].level][this.vehicles[i].slot] = true;
+      this.vehicles.splice(i, 1);
+    }
+  }
+}
+
 ParkingCtrl.prototype.ShowDialog = function() {
   this.vehicleType = 'Car';
   this.vehiclePlate = '';

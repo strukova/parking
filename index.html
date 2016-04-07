@@ -54,7 +54,7 @@
           <button ng-click="parkingCtrl.ShowDialog()">Add vehicle</button>
         </div>
         <div class="vehicle" ng-repeat="vehicle in parkingCtrl.FilteredVehicles()">
-          <button>
+          <button ng-click="parkingCtrl.RemoveVehicle(vehicle)">
             <img src="closeicon.png" alt="X">
           </button>
           <div class="vehicle-properties">
