@@ -79,6 +79,7 @@ header .plank {
   padding: 10px;
   padding-left: 30px;
   background-color: #d9d9d9;
+  border: 1px solid #bfbfbf;
   font-size: 14px;
   line-height: 20px;
 }
@@ -107,7 +108,7 @@ button {
   margin: -100px 0 0 -125px;
   padding: 25px;
   background-color: #999999;
-  border: none;
+  border: 1px solid #737373;
 }
 
 .popup input, .popup select {
