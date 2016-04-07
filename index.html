@@ -13,14 +13,14 @@
       </div>
       <div>
         <h1>
-          Vehicles
+          Parking Management
         </h1>
       </div>
     </header>
     <section class="container">
       <div class="filters-block">
-        <div class="search">
-          <input type="search" ng-model="parkingCtrl.plateFilter">
+        <div class="searchbyplate">
+          <input type="search" placeholder="Search by plate" ng-model="parkingCtrl.plateFilter">
         </div>
         <div class="levels">
           <p>
@@ -48,9 +48,9 @@
       </div>
       <div class="vehicles-block">
         <div class="vehicles-list">
-          <p>
+          <h3>
             Showing {{ parkingCtrl.FilteredVehicles().length }} of {{ parkingCtrl.vehicles.length }} vehicles
-          </p>
+          </h3>
           <button ng-click="parkingCtrl.ShowDialog()">Add vehicle</button>
         </div>
         <div class="vehicle" ng-repeat="vehicle in parkingCtrl.FilteredVehicles()">
@@ -60,19 +60,18 @@
       </div>
       <div class="popup" ng-show="parkingCtrl.dialogVisible">
         <form ng-submit="parkingCtrl.AddVehicle()">
-          <p>Add vehicle</p>
-          <input type="text" ng-model="parkingCtrl.vehiclePlate">
+          <b>Add vehicle</b>
+          <input type="text" placeholder="Enter the plate here" ng-model="parkingCtrl.vehiclePlate">
+          <br>
           <select name="vehicleType" ng-model="parkingCtrl.vehicleType">
             <option value="Car">Car</option>
             <option value="Motorbike">Motorbike</option>
           </select>
           <br>
-          <button ng-click="parkingCtrl.HideDialog()">
-            Cancel
-          </button>
-          <button type="submit">
-            Add
-          </button>
+          <div class="button-container">
+            <button ng-click="parkingCtrl.HideDialog()">Cancel</button>
+            <button type="submit">Add</button>
+          </div>
         </form>
       </div>
     </section>

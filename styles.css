@@ -15,7 +15,7 @@ header h1 {
   font-size: 25px;
 }
 
-.plank {
+header .plank {
   height: 20px;
   background-color: black;
 }
@@ -36,6 +36,12 @@ header h1 {
   background-color: lightblue;
 }
 
+.filters-block input {
+  font-size: 14px;
+  line-height: 22px;
+  border: 1px solid black;
+}
+
 .filters-block p {
   text-transform: uppercase;
 }
@@ -51,16 +57,12 @@ header h1 {
   line-height: 20px;
 }
 
-.search {
-
-}
-
-.levels {
+.filters-block .levels {
   float: left;
   margin-right: 20px;
 }
 
-.types {
+.filters-block .types {
   float: left;
 }
 
@@ -72,7 +74,7 @@ header h1 {
   background-color: lightgreen;
 }
 
-.vehicle {
+.vehicles-block .vehicle {
   margin: 10px 0;
   padding: 10px;
   padding-left: 30px;
@@ -81,19 +83,55 @@ header h1 {
   line-height: 20px;
 }
 
-.vehicle:last-child {
+.vehicles-block .vehicle:last-child {
   margin-bottom: 50px;
+}
+
+button {
+  display: inline-block;
+  width: 100px;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: black;
+  color: white;
+  border: none;
 }
 
 .popup {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 300px;
+  width: 250px;
   height: 200px;
-  margin: -100px 0 0 -150px;
-  background-color: #888888;
+  box-sizing: border-box;
+  margin: -100px 0 0 -125px;
+  padding: 25px;
+  background-color: #999999;
+  border: none;
+}
 
+.popup input, .popup select {
+  font-size: 14px;
+  line-height: 22px;
+  border: 1px solid black;
+}
+
+.popup input {
+  margin: 20px 0 10px 0;
+}
+
+.popup select {
+  margin: 0 0 25px 0;
+}
+
+.popup .button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.popup .button-container button {
+  width: 90px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -103,17 +141,26 @@ header h1 {
   margin-right: 5%;
 }
 
+.filters-block .searchbyplate {
+  margin-bottom: 30px;
+}
+
+.filters-block .levels {
+  float: none;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.filters-block .types {
+  float: none;
+}
+
 .vehicles-block {
   width: 60%;
 }
 
-.levels {
-  float: none;
-  margin-right: auto;
-}
-
-.types {
-  float: none;
+.vehicles-block button {
+  margin: 5px 0 20px 0;
 }
 
 }
