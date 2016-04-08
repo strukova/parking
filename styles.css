@@ -31,12 +31,17 @@ button {
 }
 
 .container {
-  display: table;
-  clear: both;
-  content: "";
   box-sizing: border-box;
   width: 100%;
-  padding: 0 5%;
+  /*padding: 0 5%;*/
+}
+
+.container::after {
+content: "";
+display: block;
+width: 100%;
+height: 0;
+clear: both;
 }
 
 .filters-block {
@@ -83,9 +88,6 @@ button {
 }
 
 .vehicles-block .vehicle {
-  display: table;
-  clear: both;
-  content: "";
   width: 100%;
   box-sizing: border-box;
   margin: 10px 0;
@@ -93,6 +95,14 @@ button {
   border: 1px solid #bfbfbf;
   font-size: 14px;
   line-height: 20px;
+}
+
+.vehicles-block .vehicle::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  clear: both;
 }
 
 .vehicles-block .vehicle:last-child {
