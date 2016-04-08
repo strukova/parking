@@ -54,6 +54,8 @@ clear: both;
   font-size: 14px;
   line-height: 22px;
   border: 1px solid black;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .filters-block p {
@@ -155,6 +157,8 @@ clear: both;
 
 .popup input {
   margin: 20px 0 10px 0;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .popup select {
