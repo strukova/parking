@@ -1,0 +1,30 @@
+@media only screen and (min-width: 768px) {
+
+.filters-block {
+  width: 20%;
+  margin-right: 5%;
+}
+
+.filters-block .searchbyplate {
+  margin-bottom: 30px;
+}
+
+.filters-block .levels {
+  float: none;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.filters-block .types {
+  float: none;
+}
+
+.vehicles-block {
+  width: 60%;
+}
+
+.vehicles-block button {
+  margin: 5px 0 20px 0;
+}
+
+}
