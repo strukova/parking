@@ -40,6 +40,12 @@ ParkingCtrl.prototype.AddVehicle = function() {
     this.ShowError('Invalid vehicle type');
     return;
   }
+  for (var i = 0; i < this.vehicles.length; i++) {
+    if (this.vehicles[i].plate == this.vehiclePlate) {
+      this.ShowError('This vehicle is already parked');
+      return;
+    }
+  }
   for (var i = 0; i < this.levels; i++) {
     for (var j = 0; j < this.slotsPerLevel; j++) {
       if (this.slots[i][j]) {
