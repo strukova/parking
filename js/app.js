@@ -2,7 +2,7 @@ var parkingApp = angular.module('parkingApp', []);
 
 var ParkingCtrl = function() {
   this.levels = 5;
-  this.slotsPerLevel = 3;
+  this.slotsPerLevel = 5;
   this.slots = new Array(this.levels);
   for (var i = 0; i < this.levels; i++) {
     this.slots[i] = new Array(this.slotsPerLevel);
