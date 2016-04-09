@@ -1,4 +1,4 @@
-var parkingApp = angular.module('parkingApp', []);
+var parkingApp = angular.module("parkingApp", []);
 
 var ParkingCtrl = function() {
   // Number of levels of our parking
@@ -44,16 +44,16 @@ ParkingCtrl.prototype.LevelLabels = function() {
 
 ParkingCtrl.prototype.AddVehicle = function() {
   if (this.vehiclePlate == "") {
-    this.ShowError('You must specify vehicle plate');
+    this.ShowError("You must specify vehicle plate");
     return;
   }
   if (this.vehicleType != "Car" && this.vehicleType != "Motorbike") {
-    this.ShowError('Invalid vehicle type');
+    this.ShowError("Invalid vehicle type");
     return;
   }
   for (var i = 0; i < this.vehicles.length; i++) {
     if (this.vehicles[i].plate == this.vehiclePlate) {
-      this.ShowError('This vehicle is already parked');
+      this.ShowError("This vehicle is already parked");
       return;
     }
   }
@@ -86,8 +86,8 @@ ParkingCtrl.prototype.RemoveVehicle = function(vehicle) {
 }
 
 ParkingCtrl.prototype.ShowDialog = function() {
-  this.vehicleType = 'Car';
-  this.vehiclePlate = '';
+  this.vehicleType = "Car";
+  this.vehiclePlate = "";
   this.dialogVisible = true;
 };
 
@@ -148,4 +148,4 @@ ParkingCtrl.prototype.FilteredVehicles = function() {
   return result;
 };
 
-parkingApp.controller('ParkingCtrl', ParkingCtrl);
+parkingApp.controller("ParkingCtrl", ParkingCtrl);
