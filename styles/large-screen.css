@@ -1,5 +1,4 @@
-@media only screen and (min-width: 768px) {
-
+/* Styles used on devices with large screens (e.g. tablets, desktops) */
 .filters-block {
   width: 20%;
   margin-right: 5%;
@@ -25,6 +24,4 @@
 
 .vehicles-block button {
   margin: 5px 0 20px 0;
-}
-
 }

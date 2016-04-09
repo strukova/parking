@@ -1,25 +1,36 @@
 var parkingApp = angular.module('parkingApp', []);
 
 var ParkingCtrl = function() {
+  // Number of levels of our parking
   this.levels = 5;
+  // Number of slots on every level of the parking
   this.slotsPerLevel = 5;
+  // Two-dimentional array for keeping track of free slots
+  // e.g. this.slots[3][5] contains true if 5th slot on 3rd level is free
   this.slots = new Array(this.levels);
   for (var i = 0; i < this.levels; i++) {
     this.slots[i] = new Array(this.slotsPerLevel);
   }
+  // Each slot is marked as empty in the beginning
   for (var i = 0; i < this.levels; i++) {
     for (var j = 0; j < this.slotsPerLevel; j++) {
-      this.slots[i][j] = true; // Each slot is empty in the beginning.
+      this.slots[i][j] = true;
     }
   }
+  // If true, the "Add vehicle" dialog is shown
   this.dialogVisible = false;
+  // If true, the "Car" filter checkbox is checked
   this.carsFilter = false;
+  // If true, the "Motorbike" filter checkbox is checked
   this.motorbikesFilter = false;
+  // Value of the license plate search box
   this.plateFilter = "";
+  // Values of level filter checkboxes
   this.levelFilter = new Array(this.levels);
   for (var i = 0; i < this.levels; i++) {
     this.levelFilter[i] = false;
   }
+  // Array of all vehicles parked in our parking
   this.vehicles = [];
 };
 
@@ -50,7 +61,12 @@ ParkingCtrl.prototype.AddVehicle = function() {
     for (var j = 0; j < this.slotsPerLevel; j++) {
       if (this.slots[i][j]) {
         this.slots[i][j] = false;
-        var vehicle = {"plate": this.vehiclePlate, "type": this.vehicleType, "level": i, "slot": j};
+        var vehicle = {
+          "plate": this.vehiclePlate,
+          "type": this.vehicleType,
+          "level": i,
+          "slot": j
+        };
         this.vehicles.push(vehicle);
         this.HideDialog();
         return;
