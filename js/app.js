@@ -34,6 +34,7 @@ var ParkingCtrl = function() {
   this.vehicles = [];
 };
 
+// Returns an array of level names
 ParkingCtrl.prototype.LevelLabels = function() {
   var result = [];
   for (var i = 0; i < this.levels; i++) {
@@ -42,6 +43,7 @@ ParkingCtrl.prototype.LevelLabels = function() {
   return result;
 };
 
+// Adds a new vehicle into the parking
 ParkingCtrl.prototype.AddVehicle = function() {
   if (this.vehiclePlate == "") {
     this.ShowError("You must specify vehicle plate");
@@ -76,6 +78,7 @@ ParkingCtrl.prototype.AddVehicle = function() {
   this.ShowError("No free slots");
 };
 
+// Removes a vehicle from the parking
 ParkingCtrl.prototype.RemoveVehicle = function(vehicle) {
   for (var i = 0; i < this.vehicles.length; i++) {
     if (this.vehicles[i].plate === vehicle.plate) {
@@ -85,21 +88,24 @@ ParkingCtrl.prototype.RemoveVehicle = function(vehicle) {
   }
 }
 
+// Shows dialog window
 ParkingCtrl.prototype.ShowDialog = function() {
   this.vehicleType = "Car";
   this.vehiclePlate = "";
   this.dialogVisible = true;
 };
 
+// Hides dialog window
 ParkingCtrl.prototype.HideDialog = function() {
   this.dialogVisible = false;
 };
 
+// Shows error message
 ParkingCtrl.prototype.ShowError = function(message) {
   alert(message);
 };
 
-// Returns true if the given vehicle matches current type filter.
+// Returns true if the given vehicle matches current type filter
 ParkingCtrl.prototype.MatchesTypeFilter = function(vehicle) {
   if (!this.carsFilter && !this.motorbikesFilter) {
     return true;
@@ -113,6 +119,7 @@ ParkingCtrl.prototype.MatchesTypeFilter = function(vehicle) {
   return false;
 };
 
+// Returns true if the given vehicle matches the plate filter
 ParkingCtrl.prototype.MatchesPlateFilter = function(vehicle) {
   if (!this.plateFilter) {
     return true;
@@ -123,6 +130,7 @@ ParkingCtrl.prototype.MatchesPlateFilter = function(vehicle) {
   return false;
 };
 
+// Returns true if the given vehicle matches the level filter
 ParkingCtrl.prototype.MatchesLevelFilter = function(vehicle) {
   var hasLevelFilter = false;
   for (var i = 0; i < this.levelFilter.length; i++) {
@@ -136,6 +144,7 @@ ParkingCtrl.prototype.MatchesLevelFilter = function(vehicle) {
   return this.levelFilter[vehicle.level];
 };
 
+// Returns all vehicles that match all applied filters
 ParkingCtrl.prototype.FilteredVehicles = function() {
   var result = [];
   for (var i = 0; i < this.vehicles.length; i++) {
